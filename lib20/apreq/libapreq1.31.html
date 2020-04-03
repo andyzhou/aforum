@@ -1,0 +1,497 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>libapreq - Apache Request C Library</title>
+<link rev="made" href="mailto:root@gohan37.freebsd.org" />
+</head>
+
+<body style="background-color: white">
+
+<p><a name="__index__"></a></p>
+<!-- INDEX BEGIN -->
+
+<ul>
+
+	<li><a href="#name">NAME</a></li>
+	<li><a href="#synopsis">SYNOPSIS</a></li>
+	<li><a href="#description">DESCRIPTION</a></li>
+	<li><a href="#apacherequest">ApacheRequest</a></li>
+	<ul>
+
+		<li><a href="#apacherequest__apacherequest_new__request_rec__r_">ApacheRequest *ApacheRequest_new (request_rec *r)</a></li>
+		<li><a href="#int_apacherequest_parse__apacherequest__req_">int ApacheRequest_parse (ApacheRequest *req)</a></li>
+		<li><a href="#const_char__apacherequest_param__apacherequest__req__const_char__key_">const char *ApacheRequest_param (ApacheRequest *req, const char *key)</a></li>
+		<li><a href="#array_header__apacherequest_params__apacherequest__req__const_char__key_">array_header *ApacheRequest_params (ApacheRequest *req, const char *key)</a></li>
+		<li><a href="#char__apacherequest_params_as_string__apacherequest__req__const_char__key_">char *ApacheRequest_params_as_string (ApacheRequest *req, const char *key)</a></li>
+		<li><a href="#apacheupload__upload___apacherequest_upload__apacherequest__req_">ApacheUpload *upload = ApacheRequest_upload (ApacheRequest *req)</a></li>
+	</ul>
+
+	<li><a href="#apacheupload">ApacheUpload</a></li>
+	<ul>
+
+		<li><a href="#apacheupload__apacheupload_find__apacheupload__upload__char__name_">ApacheUpload *ApacheUpload_find (ApacheUpload *upload, char *name)</a></li>
+		<li><a href="#const_char__apacheupload_info__apacheupload__upload__char__key_">const char *ApacheUpload_info (ApacheUpload *upload, char *key)</a></li>
+		<li><a href="#const_char__apacheupload_type__apacheupload__upload_">const char *ApacheUpload_type (ApacheUpload *upload)</a></li>
+	</ul>
+
+	<li><a href="#apachecookie">ApacheCookie</a></li>
+	<ul>
+
+		<li><a href="#apachecookie__apachecookie_new__request_rec__r______">ApacheCookie *ApacheCookie_new (request_rec *r, ...)</a></li>
+		<li><a href="#char__apachecookie_attr__apachecookie__c__char__key__char__val_">char *ApacheCookie_attr (ApacheCookie *c, char *key, char *val)</a></li>
+		<li><a href="#apachecookiejar__apachecookie_parse__request_rec__r__const_char__data_">ApacheCookieJar *ApacheCookie_parse (request_rec *r, const char *data)</a></li>
+		<li><a href="#int_apachecookieitems__apachecookie__c_">int ApacheCookieItems (ApacheCookie *c)</a></li>
+		<li><a href="#char__apachecookiefetch__apachecookie__c__int_n_">char *ApacheCookieFetch (ApacheCookie *c, int n)</a></li>
+		<li><a href="#void_apachecookieadd__apachecookie__c__char__value_">void ApacheCookieAdd (ApacheCookie *c, char *value)</a></li>
+		<li><a href="#int_apachecookiejaritems__apachecookiejar__cookies_">int ApacheCookieJarItems (ApacheCookieJar *cookies)</a></li>
+		<li><a href="#apachecookie__apachecookiejarfetch__apachecookiejar__cookies__int_n_">ApacheCookie *ApacheCookieJarFetch (ApacheCookieJar *cookies, int n)</a></li>
+		<li><a href="#void_apachecookiejaradd__apachecookiejar__cookies__apachecookie__c_">void ApacheCookieJarAdd (ApacheCookieJar *cookies, ApacheCookie *c)</a></li>
+		<li><a href="#char__apachecookie_expires__apachecookie__c__char__time_str_">char *ApacheCookie_expires (ApacheCookie *c, char *time_str)</a></li>
+		<li><a href="#void_apachecookie_bake__apachecookie__c_">void ApacheCookie_bake (ApacheCookie *c)</a></li>
+		<li><a href="#char__apachecookie_as_string__apachecookie__c_">char *ApacheCookie_as_string (ApacheCookie *c)</a></li>
+	</ul>
+
+	<li><a href="#bugs">BUGS</a></li>
+	<li><a href="#credits">CREDITS</a></li>
+	<li><a href="#license">LICENSE</a></li>
+</ul>
+<!-- INDEX END -->
+
+<hr />
+<p>
+</p>
+<h1><a name="name">NAME</a></h1>
+<p>libapreq - Apache Request C Library</p>
+<p>
+</p>
+<hr />
+<h1><a name="synopsis">SYNOPSIS</a></h1>
+<p>
+</p>
+<hr />
+<h1><a name="description">DESCRIPTION</a></h1>
+<p>
+</p>
+<hr />
+<h1><a name="apacherequest">ApacheRequest</a></h1>
+<dl>
+<dt><strong><a name="item_parms">req-&gt;parms</a></strong><br />
+</dt>
+<dd>
+This field is an Apache <em>table</em> that holds the parsed contents of
+<strong>GET</strong> and <strong>POST</strong> requests.
+Example:
+</dd>
+<dd>
+<pre>
+ table *data = req-&gt;parms;
+ ap_table_set(data, &quot;Key&quot;, &quot;Value&quot;);</pre>
+</dd>
+<p></p>
+<dt><strong><a name="item_post_max">req-&gt;post_max</a></strong><br />
+</dt>
+<dt><strong><a name="item_apacherequest_set_post_max">ApacheRequest_set_post_max(req, max)</a></strong><br />
+</dt>
+<dd>
+Limit the size of POST data.  <em>ApacheRequest_parse</em> will return an
+error code if the size is exceeded:
+</dd>
+<dd>
+<pre>
+ int status;
+ ApacheRequest *req = ApacheRequest_new(r);</pre>
+</dd>
+<dd>
+<pre>
+ req-&gt;post_max = 1204;
+ if((status = ApacheRequest_parse(req)) != OK) {
+     char *errmsg = ap_table_get(r-&gt;notes, &quot;error-notes&quot;);
+     ...
+     return status;
+ }</pre>
+</dd>
+<p></p>
+<dt><strong><a name="item_disable_uploads">req-&gt;disable_uploads</a></strong><br />
+</dt>
+<dd>
+Disable file uploads.  <em>ApacheRequest_parse</em> will return an
+error code if a file upload is attempted:
+</dd>
+<dd>
+<pre>
+ int status;
+ ApacheRequest *req = ApacheRequest_new(r);</pre>
+</dd>
+<dd>
+<pre>
+ req-&gt;disable_uploads = 1;
+ if((status = ApacheRequest_parse(req)) != OK) {
+     char *errmsg = ap_table_get(r-&gt;notes, &quot;error-notes&quot;);
+     ...
+     return status;
+ }</pre>
+</dd>
+<p></p>
+<dt><strong><a name="item_temp_dir">req-&gt;temp_dir</a></strong><br />
+</dt>
+<dt><strong><a name="item_apacherequest_set_temp_dir">ApacheRequest_set_temp_dir(req, dir)</a></strong><br />
+</dt>
+<dd>
+Sets the directory where upload files are spooled.
+</dd>
+<dd>
+<pre>
+  char dir[] = &quot;/usr/tmp&quot;;
+  req-&gt;temp_dir = dir;</pre>
+</dd>
+<p></p>
+<dt><strong><a name="item_hook_data">req-&gt;hook_data</a></strong><br />
+</dt>
+<dt><strong><a name="item_upload_hook">req-&gt;upload_hook</a></strong><br />
+</dt>
+<dd>
+Redirects upload data to be processed by the hook.
+</dd>
+<dd>
+<pre>
+  req-&gt;hook_data = (void *) data;
+  req-&gt;upload_hook = (int(*)(void*,char*,int,ApacheUpload*)) func;</pre>
+</dd>
+<dd>
+<p>In this case</p>
+</dd>
+<dd>
+<pre>
+  func(req-&gt;hook_data,buffer,bufsize,upload);</pre>
+</dd>
+<dd>
+<p>will be called repeatedly during the file upload instead of writing the 
+data to a temp file.</p>
+</dd>
+<p></p></dl>
+<p>
+</p>
+<h2><a name="apacherequest__apacherequest_new__request_rec__r_">ApacheRequest *ApacheRequest_new (request_rec *r)</a></h2>
+<p>This function creates a new <em>ApacheRequest</em> object using the given
+<em>request_rec</em> structure:</p>
+<pre>
+ ApacheRequest *req = ApacheRequest_new(r);</pre>
+<p>
+</p>
+<h2><a name="int_apacherequest_parse__apacherequest__req_">int ApacheRequest_parse (ApacheRequest *req)</a></h2>
+<p>If the request method is <strong>GET</strong> or <strong>POST</strong>, the query string
+arguments and the client form data will be read, parsed and saved.
+In addition, if the request method is <strong>POST</strong> and the <em>Content-type</em> is
+<em>multipart/form-data</em>, the uploaded files will be written to
+temporary files which can be accessed with the <em>upload</em> field names.
+The return value is <strong>OK</strong> on success, otherwise an error code that
+your handler should return.</p>
+<p>
+</p>
+<h2><a name="const_char__apacherequest_param__apacherequest__req__const_char__key_">const char *ApacheRequest_param (ApacheRequest *req, const char *key)</a></h2>
+<p>This function will return the value of the given parameter <em>key</em>:</p>
+<pre>
+ const char *value = ApacheRequest_param(req, &quot;Key&quot;);</pre>
+<p>
+</p>
+<h2><a name="array_header__apacherequest_params__apacherequest__req__const_char__key_">array_header *ApacheRequest_params (ApacheRequest *req, const char *key)</a></h2>
+<p>This function will return an <em>array_header</em> of values for the given
+parameter <em>key</em>:</p>
+<pre>
+ array_header *values = ApacheRequest_params(req, &quot;Key&quot;);</pre>
+<p>
+</p>
+<h2><a name="char__apacherequest_params_as_string__apacherequest__req__const_char__key_">char *ApacheRequest_params_as_string (ApacheRequest *req, const char *key)</a></h2>
+<p>This function will format multi-value parmeters into a comma delimited string.</p>
+<pre>
+ char *list = ApacheRequest_params_as_string(req, &quot;Key&quot;);</pre>
+<p>
+</p>
+<h2><a name="apacheupload__upload___apacherequest_upload__apacherequest__req_">ApacheUpload *upload = ApacheRequest_upload (ApacheRequest *req)</a></h2>
+<p>If the request <em>Content-type</em> was that of <em>multipart/form-data</em>,
+this will return an <em>ApacheUpload</em> pointer containing the upload data,
+<strong>NULL</strong> otherwise.  See <em>ApacheUpload</em>.</p>
+<pre>
+ ApacheUpload *upload = ApacheRequest_upload(req);</pre>
+<p>
+</p>
+<hr />
+<h1><a name="apacheupload">ApacheUpload</a></h1>
+<p>The <em>ApacheUpload</em> structure holds all information for all uploaded
+files and is accessed via the <em>upload</em> field of an <em>ApacheRequest</em>
+structure.</p>
+<dl>
+<dt><strong><a name="item_name">upload-&gt;name</a></strong><br />
+</dt>
+<dd>
+The name of the filefield parameter:
+</dd>
+<dd>
+<pre>
+ char *name = upload-&gt;name;</pre>
+</dd>
+<p></p>
+<dt><strong><a name="item_filename">upload-&gt;filename</a></strong><br />
+</dt>
+<dd>
+The name of the upload file as reported by the client:
+</dd>
+<dd>
+<pre>
+ char *filename = upload-&gt;filename;</pre>
+</dd>
+<p></p>
+<dt><strong><a name="item_fp">upload-&gt;fp</a></strong><br />
+</dt>
+<dd>
+A file pointer to the uploaded file:
+</dd>
+<dd>
+<pre>
+ FILE *fp = upload-&gt;fp;</pre>
+</dd>
+<p></p>
+<dt><strong><a name="item_tempname">upload-&gt;tempname</a></strong><br />
+</dt>
+<dd>
+The name of the temporary upload file on the server:
+</dd>
+<dd>
+<p>char *tempname = upload-&gt;tempname;</p>
+</dd>
+<p></p>
+<dt><strong><a name="item_size">upload-&gt;size</a></strong><br />
+</dt>
+<dd>
+The size of the uploaded file in bytes:
+</dd>
+<dd>
+<pre>
+ long size = upload-&gt;size;</pre>
+</dd>
+<p></p>
+<dt><strong><a name="item_info">upload-&gt;info</a></strong><br />
+</dt>
+<dd>
+The additional header information for the uploaded file:
+</dd>
+<dd>
+<pre>
+ table *info = upload-&gt;info;
+ const char *type = ap_table_get(info, &quot;Content-type&quot;);</pre>
+</dd>
+<p></p>
+<dt><strong><a name="item_next">upload-&gt;next</a></strong><br />
+</dt>
+<dd>
+Pointer to the next <em>ApacheUpload</em> structure if multiple files were
+uploaded:
+</dd>
+<dd>
+<pre>
+    ApacheUpload *uptr;
+    for (uptr = ApacheRequest_upload(req); uptr; uptr = uptr-&gt;next) {
+        char *name = uptr-&gt;name;
+        FILE *fp   = uptr-&gt;fp;
+        ...
+    }</pre>
+</dd>
+<p></p></dl>
+<p>
+</p>
+<h2><a name="apacheupload__apacheupload_find__apacheupload__upload__char__name_">ApacheUpload *ApacheUpload_find (ApacheUpload *upload, char *name)</a></h2>
+<p>Returns the <em>ApacheUpload</em> pointer associated with <em>name</em> or
+<strong>NULL</strong> if <em>name</em> is not found in the list:</p>
+<pre>
+ ApacheUpload *upload = ApacheUpload_find(upload, name);</pre>
+<p>
+</p>
+<h2><a name="const_char__apacheupload_info__apacheupload__upload__char__key_">const char *ApacheUpload_info (ApacheUpload *upload, char *key)</a></h2>
+<p>Shortcut for accessing the <em>info</em> table:</p>
+<pre>
+ const char *type = ApacheUpload_info(upload, &quot;Content-Type&quot;);</pre>
+<p>
+</p>
+<h2><a name="const_char__apacheupload_type__apacheupload__upload_">const char *ApacheUpload_type (ApacheUpload *upload)</a></h2>
+<p>Shortcut for accessing the uploaded file <em>Content-Type</em>:</p>
+<pre>
+ const char *type = ApacheUpload_type(upload);</pre>
+<p>
+</p>
+<hr />
+<h1><a name="apachecookie">ApacheCookie</a></h1>
+<p>
+</p>
+<h2><a name="apachecookie__apachecookie_new__request_rec__r______">ApacheCookie *ApacheCookie_new (request_rec *r, ...)</a></h2>
+<p>This function creates a new <em>ApacheCookie</em> object, using the given
+<em>request_request</em> and optional attribute arguments which are as follows:</p>
+<dl>
+<dt><strong><a name="item__2dname">-name</a></strong><br />
+</dt>
+<dd>
+Sets the <em>name</em> field to the given value.
+</dd>
+<p></p>
+<dt><strong><a name="item__2dvalue">-value</a></strong><br />
+</dt>
+<dd>
+Adds the value to <em>values</em> field.
+</dd>
+<p></p>
+<dt><strong><a name="item__2dexpires">-expires</a></strong><br />
+</dt>
+<dd>
+Sets the <em>expires</em> field to the calculated date string.
+See <em>ApacheCookie_expires</em> for a listing of format options.
+The default is <strong>NULL</strong>.
+</dd>
+<p></p>
+<dt><strong><a name="item__2ddomain">-domain</a></strong><br />
+</dt>
+<dd>
+Sets the <em>domain</em> field to the given value.
+The default is <strong>NULL</strong>.
+</dd>
+<p></p>
+<dt><strong><a name="item__2dpath">-path</a></strong><br />
+</dt>
+<dd>
+Sets the <em>path</em> field to the given value.
+The default <em>path</em> is derived from the requested <em>uri</em>.
+</dd>
+<p></p>
+<dt><strong><a name="item__2dsecure">-secure</a></strong><br />
+</dt>
+<dd>
+Sets the <em>secure</em> field to true or false using a given string value
+of <em>On</em> or <em>Off</em>.  
+The default is <em>Off</em>.
+</dd>
+<p></p></dl>
+<p>Example:</p>
+<pre>
+ ApacheCookie *c = ApacheCookie_new(r,
+                        &quot;-name&quot;,    &quot;foo&quot;, 
+                        &quot;-value&quot;,   &quot;bar&quot;, 
+                        &quot;-expires&quot;, &quot;+3M&quot;, 
+                        &quot;-domain&quot;,  &quot;.cp.net&quot;, 
+                        &quot;-path&quot;,    &quot;/mypath/database&quot;, 
+                        &quot;-secure&quot;,  &quot;On&quot;, 
+                        NULL);</pre>
+<p>
+</p>
+<h2><a name="char__apachecookie_attr__apachecookie__c__char__key__char__val_">char *ApacheCookie_attr (ApacheCookie *c, char *key, char *val)</a></h2>
+<p>This function is used to get or set a cookie attribute pair, accepting
+the same attributes as the list above.  Example:</p>
+<pre>
+ char *name = ApacheCookie_attr(c, &quot;-name&quot;); /* same as c-&gt;name */
+ (void *)ApacheCookie_attr(c, &quot;-expires&quot;, &quot;+3h&quot;);</pre>
+<p>
+</p>
+<h2><a name="apachecookiejar__apachecookie_parse__request_rec__r__const_char__data_">ApacheCookieJar *ApacheCookie_parse (request_rec *r, const char *data)</a></h2>
+<p>This function parses the given <em>data</em> string or the incoming
+<em>Cookie</em> header, returning an <em>ApacheCookieJar</em> of <em>ApacheCookie</em>
+objects.</p>
+<p>Example:</p>
+<pre>
+ int i;
+ ApacheCookieJar *cookies = ApacheCookie_parse(r, NULL);
+ for (i = 0; i &lt; ApacheCookieJarItems(cookies); i++) { 
+     ApacheCookie *c = ApacheCookieJarFetch(cookies, i);
+     int j;
+     for (j = 0; j &lt; ApacheCookieItems(c); j++) {
+         char *name = c-&gt;name;
+         char *value = ApacheCookieFetch(c, j);
+         ...
+     }
+ }</pre>
+<p>
+</p>
+<h2><a name="int_apachecookieitems__apachecookie__c_">int ApacheCookieItems (ApacheCookie *c)</a></h2>
+<p>The number of values for the given cookie.</p>
+<p>
+</p>
+<h2><a name="char__apachecookiefetch__apachecookie__c__int_n_">char *ApacheCookieFetch (ApacheCookie *c, int n)</a></h2>
+<p>The <em>n</em>th value for the given cookie.</p>
+<p>
+</p>
+<h2><a name="void_apachecookieadd__apachecookie__c__char__value_">void ApacheCookieAdd (ApacheCookie *c, char *value)</a></h2>
+<p>Add a new value to the cookie.</p>
+<p>
+</p>
+<h2><a name="int_apachecookiejaritems__apachecookiejar__cookies_">int ApacheCookieJarItems (ApacheCookieJar *cookies)</a></h2>
+<p>The number of cookies in the given cookie jar.</p>
+<p>
+</p>
+<h2><a name="apachecookie__apachecookiejarfetch__apachecookiejar__cookies__int_n_">ApacheCookie *ApacheCookieJarFetch (ApacheCookieJar *cookies, int n)</a></h2>
+<p>The <em>n</em>th cookie in the given cookie jar.</p>
+<p>
+</p>
+<h2><a name="void_apachecookiejaradd__apachecookiejar__cookies__apachecookie__c_">void ApacheCookieJarAdd (ApacheCookieJar *cookies, ApacheCookie *c)</a></h2>
+<p>Add a new cookie to the cookie jar.</p>
+<p>
+</p>
+<h2><a name="char__apachecookie_expires__apachecookie__c__char__time_str_">char *ApacheCookie_expires (ApacheCookie *c, char *time_str)</a></h2>
+<p>This function gets or sets the expiration date for cookie.
+The following forms are all valid for the <em>time_str</em> parmeter:</p>
+<pre>
+        +30s                              30 seconds from now 
+        +10m                              ten minutes from now 
+        +1h                               one hour from now 
+        -1d                               yesterday (i.e. &quot;ASAP!&quot;) 
+        now                               immediately 
+        +3M                               in three months 
+        +10y                              in ten years time 
+        Thursday, 25-Apr-1999 00:40:33 GMT  at the indicated time &amp; date</pre>
+<p>
+</p>
+<h2><a name="void_apachecookie_bake__apachecookie__c_">void ApacheCookie_bake (ApacheCookie *c)</a></h2>
+<p>Put cookie in the oven to bake.
+(Add a <em>Set-Cookie</em> header to the outgoing headers table.)</p>
+<pre>
+ ApacheCookie_bake(c);</pre>
+<p>
+</p>
+<h2><a name="char__apachecookie_as_string__apachecookie__c_">char *ApacheCookie_as_string (ApacheCookie *c)</a></h2>
+<p>Returns a string version of the cookie:</p>
+<pre>
+ ap_table_add(r-&gt;headers_out, &quot;Set-Cookie&quot;, ApacheCookie_as_string(c));</pre>
+<p>
+</p>
+<hr />
+<h1><a name="bugs">BUGS</a></h1>
+<ul>
+<li><strong><a name="item_multi_2dselect_file_uploads_are_currently_unsuppor">multi-select file uploads are currently unsupported</a></strong><br />
+</li>
+<li><strong><a name="item_header_2dfolding_is_unsupported_for_multipart_2ffo">header-folding is unsupported for multipart/form-data</a></strong><br />
+</li>
+<li><strong><a name="item_newer_xml_2dbased_mime_2dencodings_are_not_support">newer XML-based MIME-encodings are not supported</a></strong><br />
+</li>
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="credits">CREDITS</a></h1>
+<p>This library is based on Perl modules by Lincoln Stein.</p>
+<p>
+</p>
+<hr />
+<h1><a name="license">LICENSE</a></h1>
+<pre>
+  Copyright 2000-2004  The Apache Software Foundation</pre>
+<pre>
+  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at</pre>
+<pre>
+      <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></pre>
+<pre>
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.</pre>
+
+</body>
+
+</html>

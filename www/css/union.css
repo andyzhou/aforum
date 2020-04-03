@@ -1,0 +1,125 @@
+.whole {
+	text-align:center;
+	font: 14px Arial, Helvetica, sans-serif, "宋体";
+	margin:0 auto;
+}
+
+.genDiv {
+	float:left;
+	font: Arial, Helvetica, sans-serif, "宋体";
+	margin:0 auto;
+	width:99%;
+	clear:both;
+}
+
+.mainLeft {
+	float:left;
+	width:380px;
+	margin-top:10px;
+	margin-bottom:10px;
+	margin:0 auto;
+	clear:right;
+}
+
+.mainRight {
+	float:right;
+	width:370px;
+	margin-top:10px;
+	margin-bottom:10px;
+	margin:0 auto;
+	clear:right;
+}
+
+.sign_left {
+	float:left;
+	height: 197px;
+	background: url(/image/union/sign_in_bg.gif) no-repeat left;
+	width:370px;
+	border: 1px solid #f1f1f1;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.sign_right {
+	float:right;
+	height: 197px;
+	background: url(/image/union/sign_up_bg.gif) no-repeat left;
+	width:370px;
+	margin-top:10px;
+	margin-bottom:10px;
+	border: 1px solid #f1f1f1;
+	}
+
+.sign_left ul, .sign_right ul  {
+	padding-left:20px;
+	list-style:none;
+	width: 300px;
+	float: left;
+	text-align: left;
+	margin:0px;
+	padding-top:15px;
+	font: 12px Arial, Helvetica, sans-serif, "宋体";
+}
+
+.sign_left li, .sign_right li {
+	margin-bottom:5px;
+	padding: 0;
+	text-align:right;
+}
+
+.sign_left span, .sign_right span {
+	text-align:left;
+	float: left;
+	margin: 0 auto;
+	font: 14px Arial, Helvetica, sans-serif, "宋体";
+	padding: 0px;
+}
+
+.regBtn {
+	line-height:21px !important;
+	font: bold 16px Arial, Helvetica, sans-serif, "宋体";
+	color: #9595FF;
+	background: #CECEFF;
+	border-right: 2px solid #999999;
+	border-bottom: 2px solid #999999;
+	padding-right: 2px;
+	padding-left: 2px;
+	height: 48px;
+	width:120px;
+	margin-top: 0px;
+}
+
+.ajaxMsgDiv {
+ float:left;
+ text-align:center;
+ border: 1px solid #FFCC00;
+ font:14px;
+ font-weight:bold;
+ color:#99C435;
+ padding:5px 5px 5px 5px;
+ margin-bottom:5px;
+ width:98%;
+}
+
+.main{
+	text-align:left;
+	margin:0 auto;
+	font: Arial, Helvetica, sans-serif, "宋体";
+	width:760px;
+}
+
+.main a{
+	padding:1px 0px 5px 5px;
+	text-decoration:none;
+}
+
+.main a:hover{
+	text-decoration:underline;
+}
+
+.main .p_line{
+	border-bottom: 1px solid #f1f1f1;
+	color: #FF6600;
+	padding-top:5px;
+	padding-bottom:8px;
+}

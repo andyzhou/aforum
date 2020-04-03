@@ -1,0 +1,43 @@
+<br clear="all">
+
+<div class="main">
+ <form name="regForm" enctype="multipart/form-data" action="##app_run_url##" method="post">
+ <p>
+  <label>Email Adress:</label>
+  ##member_email##
+ </p>
+ <p>
+  <label>Avatar:</label>
+  ##member_photo##
+ </p>
+ <p>
+  <label>&nbsp;</label>
+  <input type="file" name="myPhoto" size="28">
+     image max size 10KB
+ </p>
+ <p>
+  <label>Sex:</label>
+  <input type="radio" name="sex" value="0" ##sex_0##> secret
+  <input type="radio" name="sex" value="1" ##sex_1##> gentleman
+  <input type="radio" name="sex" value="2" ##sex_2##> lady
+ </p>
+ <p>
+  <label>Location:</label>
+  <input type="text" name="location" size="36" maxlength="50" value="##location##">
+ </p>
+ <p>
+  <label>Sign:</label>
+  <textarea name="signInfo" cols="31" rows="3">##signinfo##</textarea>
+ </p>
+</div>
+
+<div class="main">
+ <p>
+ <label>&nbsp;</label>
+ <input type="hidden" name="func" value="union">
+ <input type="hidden" name="cmd" value="saveProf">
+ <input type="submit" name="submitBtn" value="Submit">
+ <input type="reset"  name="resetBtn" value="Reset">
+ <input type="button"  name="resetBtn" value="Return"  onclick="javascript:history.go(-1)">
+ </p></form>
+ </div>

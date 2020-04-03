@@ -1,0 +1,84 @@
+=============
+ 21-Jul-2007
+  Version 4
+=============
+
+FIXED
+
+- Fixed README and samples with regard to memory allocation  for tpl_get_content().
+  The allocated memory should be tpl_length() + 1 as the string is \0 terminated.
+  tpl_get_content() works like strcpy() in that it assumes that there is space for the \0 byte.
+  Thanks to Geoff Cleary @ SightLogix for pointing out this problem.
+
+- Fixed field and section lookup. Thanks to Geoff Cleary @ SightLogix for finding this bug.
+
+- Fixed missing memory allocation in tpl_http_write()
+
+
+=============
+ 10-Apr-2007
+  Version 3
+=============
+
+FIXED
+
+- Fixed tpl_deselect_section() not restoring previous delection state in
+  the section being deselected
+
+
+CHANGED
+
+- Improved allocation of nodes etc. to save some memory allocation calls
+- Improved performance of tpl_set_field_int() and tpl_set_field_uint()
+- Changed the tpl_from_string() function to accept a const buffer which does not need to be
+  \0 terminated
+- Changed the way tpl_set_section() works - it now removes the previous content of the section
+  and replaces it with the set content. Note that this function is intended to be used once per
+  parent append
+- Changed return types for tpl_select_section(), tpl_deselect_section(), tpl_set_section()
+  and tpl_append_section() to return TPL_ status codes
+- Changed functions tpl_write() and tpl_http_write() so that they return a TPL_ status code - see
+  defined return values in header file
+
+
+=============
+ 04-Apr-2007
+  Version 2
+=============
+
+FIXED
+
+- Fixed the copy function so that the selected section is set properly in the clone.
+- Fixed write in tpl_save_as() that disturbed line breaks on some platforms.
+- Fixed tpl_http_write() to force CRLF instead of platform dependent line breaks
+ (idea by Karl Pitrich).
+
+
+ADDED
+
+- Added function to construct the template from a string.
+- Additions to make code easier to use from C++ programs (inspired by Karl Pitrich).
+- Added a C++ sample.
+- Added tpl_set_field_fmt() and tpl_set_field_fmt_global() to set fields using printf()
+  style formats.
+  NOTE: those functions rely on the vsnprintf() function. Not all
+  (e.g. older versions of DECC) compilers have this function. A source file for vsnprintf()
+  which I have found somewhere on WWW is included here.
+
+
+CHANGED
+
+- Removed the get_ticks() function because of questionable portability.
+- Filename changed from ctemplate to tpllib to make it more consistent with usual library naming.
+- The template structure type has been renamed to tpl_t (the old name template_t will still work).
+- Replaced malloc() and free() with macros to make it easier to use other memory management
+  functions. When compiling with PHP (ZTS must be defined) the macros used are
+  emalloc() and efree().
+
+
+=============
+ 24-Mar-2003
+  Version 1
+=============
+
+Initial version.

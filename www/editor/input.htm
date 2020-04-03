@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<title>输入框　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</title>
+		<style type="text/css">
+			body,table,button,input{font-size:12px;font-family:宋体}
+		</style>
+		<script type="text/javascript">
+			window.docHeight=function(){return Math.max(document.body.clientHeight,document.documentElement.clientHeight)}
+			document.onreadystatechange=function(){if(document.readyState=="complete")document_onload()}
+			window.arg=dialogArguments;
+			function document_onload(){
+				var h=docHeight();
+				if(h<160)
+					dialogHeight=(dialogHeight.slice(0,-2)*1+160-h)+"px";
+				bxTitle.innerHTML=arg.title;
+				bxInput.innerHTML="<input id='txInput' onkeydown='if(event.keyCode==13)btOk.click()' style='width:282px;height:20px'>";
+				txInput.value=arg.value==null?"":arg.value;
+				txInput.focus();
+				txInput.select();
+			}
+		</script>
+	</head>
+	<body bgcolor="buttonface" style="overflow:hidden;cursor:default">
+		<div id="bxTitle" style="padding-top:16px;padding-left:55px;height:20px"></div>
+		<div id="bxInput" style="padding-top:18px;padding-left:55px;height:20px"></div>
+		<div style="text-align:center;padding-top:18px">
+			<button id="btOk" onclick="window.returnValue=txInput.value;window.close()" style="width:70px;height:24px">确定</button>&nbsp;&nbsp;
+			<button onclick="window.close()" style="width:70px;height:24px">取消</button>
+		</div>
+		<img src="imgs/input_logo.gif" style="position:absolute;left:16px;top:14px">
+	</body>
+</html>

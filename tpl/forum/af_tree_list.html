@@ -1,0 +1,117 @@
+<table cellpadding="1" cellspacing="1" width="98%">
+ <tbody>
+ <tr><td>
+ <h3>
+ <a href="##app_run_url##">##app_name##</a>
+ >
+ ##show_board_name##
+ </h3>
+ </td></tr>
+ </tbody>
+</table>
+
+<div class="genSecDiv">
+ ##show_board_intro##
+</div>
+
+
+<table cellpadding="0" cellspacing="1" width="100%" class="orgBgcolor">
+ <tbody>
+ <tr class="orgBgcolor2"><td>
+  <table cellpadding="2" cellspacing="2" width="100%">
+   <tbody>
+   <tr><td width="70%">
+	<a href="##show_board_bname##?s=2&l=1"><span ##by_time##>By Time</span></a>
+	|
+	<a href="##show_board_bname##?s=2&l=2"><span ##by_hit##>By Hits</span></a>
+	|
+	<a href="##show_board_bname##?s=2&l=3"><span ##by_reply##>By Replies</span></a>
+   </td><td width="30%" align="right">
+     <input type="button" onclick="window.location='##show_board_bname##?p=##show_cur_page##'" value="Float View">
+     <input type="button" onclick="window.location='##show_board_bname##?cmd=post&s=2&p=##show_cur_page##'" value="Post Topic">
+   </td></tr>
+   </tbody>
+  </table>
+ </td></tr>
+ </tbody>
+</table>
+
+<br clear="all">
+
+
+<!-- ##treelist## -->
+<div class="genSecDiv">
+ <div class="treeTopic" style="padding-left:##show_space_width##px">
+  <li class="##li_style##">##show_express##<a class="topic" href="##show_board_bname##?cmd=read&i=##show_topic_id##&t=##show_rootTopic_id##&s=2&p=##show_cur_page##">##show_topic_title##</a>
+  ##show_att_type## ##show_top_img## ##show_hot_img## ##show_lock_img##
+  &nbsp;##show_topic_len## bytes
+  - <strong>##show_poster##</strong>
+  <a href="##app_run_url##/union/##show_poster_id##"><img src="##app_url##/images/icon_search.gif" border="0"></a>
+  - ##show_post_time## (##show_topic_hits## hits)
+  </li>
+ </div>
+</div>
+<!-- ##treelist## -->
+
+
+<br clear="all">
+
+<table cellpadding="0" cellspacing="1" width="100%" class="orgBgcolor">
+ <tbody>
+ <tr class="orgBgcolor2"><td>
+  <table cellpadding="2" cellspacing="2" width="100%">
+   <tbody>
+   <tr><td width="70%">
+	 Pages:(##cur_page##/##total_pages##)&nbsp;
+	 ##prev_page##&nbsp;
+	 ##page_list##&nbsp;
+	 ##next_page##
+   </td><td width="30%" align="right">
+     <input type="button" onclick="window.location='##show_board_bname##?p=##show_cur_page##'" value="Float View">
+     <input type="button" onclick="window.location='##show_board_bname##?cmd=post&s=2&p=##show_cur_page##'" value="Post Topic">
+   </td></tr>
+   </tbody>																																													
+  </table>
+ </td></tr>
+ </tbody>
+</table>
+
+
+
+<table cellpadding="0" cellspacing="1">
+ <tbody>
+ <tr><td height="5" colspan="2"></td></tr>
+ <tr><td>
+ Board Jump:
+ <select name="boards" size="1" onchange="loadBoard(this.options[this.selectedIndex].value)">
+  <option value="">Please select...</option>
+  <script language=JavaScript src="##sub_board_js##"></script>
+ </select>
+ </td><td>
+  <table cellspacing="0" cellpadding="0">
+   <form action="##app_run_url##/##show_board_bname##" method="get">
+   <tr><td>&nbsp;&nbsp;&nbsp;
+	<input type="text" name="k"  size="15" maxlength="20">
+   </td><td>
+	<input type="submit"  value="Search">
+	<input type="hidden"  name = "cmd" value="query">
+   </td></tr> </form>
+  </table>
+ </td></tr>
+ </tbody>
+</table>
+
+<script language="JavaScript">
+<!--
+function loadBoard(subBoard)
+{
+	if(typeof(subBoard) == "null" || subBoard == '')
+	{
+		alert("Please select board");
+		return;
+	}
+
+	window.location="##app_run_url##/"+subBoard;
+}
+//-->
+</script>

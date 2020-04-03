@@ -1,0 +1,49 @@
+
+<div class="genSecDiv">
+ <h3>
+ <a href="##app_run_url##">##app_name##</a>
+ >
+ <a href="##app_run_url##/##show_board_bname##">##show_board_name##</a>
+ >
+ ##show_key## Search Result
+ </h3>
+</div>
+
+<table cellpadding="0" cellspacing="1" width="98%" class="orgBgcolor">
+ <tbody>
+ <tr class="orgBgcolor2"><td>
+  <table cellspacing="2" cellpadding="2">
+   <form action="##app_run_url##/##show_board_bname##" method="get">
+   <tr><td>&nbsp;&nbsp;&nbsp;
+    &nbsp;<input type="text" name="k"  size="15" maxlength="20" value=" ##show_key##">
+   </td><td>
+	<input type="submit"  value="Search">
+	<input type="hidden"  name = "cmd" value="query">
+   </td></tr> </form>
+  </table>
+  </td></tr>
+  </tbody>
+</table>
+
+<br clear="all">
+
+<!-- ##threadlist## -->
+<div class="genSecDiv">
+ <div class="treeTopic" style="padding-left:##show_space_width##px">
+  <li><a class="topic" href="##show_board_bname##?cmd=read&i=##show_topic_id##&t=##show_rootTopic_id##&s=2&p=##show_cur_page##">##show_topic_title##</a>
+  - <strong>##show_poster##</strong>
+  <a href="##app_run_url##/union/##show_poster_id##"><img src="##app_url##/images/icon_search.gif" border="0"></a>
+  - ##show_post_time##
+  </li>
+ </div>
+</div>
+<!-- ##threadlist## -->
+
+<div class="grayBar">
+ <div class="leftDiv">
+ Pages:(##cur_page##/##total_pages##)
+ ##prev_page##
+ ##page_list##
+ ##next_page##
+ </div>
+</div>

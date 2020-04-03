@@ -1,0 +1,243 @@
+html{
+	overflow-y:scroll;
+}
+
+body, p, td, input, select, div {
+	font-family: Arial, Helvetica, Tahoma, Verdana;
+	font-size: 15px;
+	margin-left:5px!important;	
+}
+
+hr {
+	width:99%!important;
+	margin-bottom:5px!important;
+}
+
+p{
+	color: #333333;
+	text-align:left;
+	clear: left;
+	padding:0px;
+	margin:5px;
+	font: 12px/20px Arial, Helvetica, sans-serif, "宋体";
+}
+
+ p label{
+	width:110px;
+	color: #333333;
+	text-align:right;
+	float: left;
+	line-height: 20px;
+	height: 20px;
+}
+
+ p span{
+	width:150px;
+	color: #666666;
+	margin-left: 10px;
+	padding-left: 20px;
+	height: 20px;
+	padding-bottom: 2px;
+	padding-top: 2px;
+	white-space:nowrap;
+}
+
+.genSecDiv {
+	padding-bottom:3px!important;
+	width:798px!important;
+	margin-right:2px!important;
+	margin-left:10px!important;
+}
+
+.genLefDiv {
+	padding-bottom:3px!important;
+	width:95%!important;
+}
+
+.orgBgcolor {
+	background-color:#FF9155;
+}
+
+.orgBgcolor2 {
+	background-color:#FEEFDA;
+}
+
+.grayBar {
+	width:98%!important;
+	height:21px!important;
+	padding:10px 0px 10px 0px;
+}
+
+.grayBar .leftDiv {
+	float:left;
+	margin-right:10px!important;
+	width:42%!important;
+}
+
+.grayBar .rightDiv {
+	position: relative;
+	width:50%!important;
+	text-align:right;
+	float:right;
+}
+
+.frontTableColor {
+	background-color:#D5D5D5
+};
+
+.frontTrColor {
+	background-color:#C5D6E0
+}
+
+.frontTrColor1 {
+	background-color:#F3F3F3
+}
+
+.frontTrColor2 {
+	background-color:#FFFFFF
+}
+
+.frontTdColor1 {
+	background-color:#E6E7E8	
+}
+
+.curFocus {
+	background-color:read;
+	font-weight:bold;
+	color:read;
+}
+
+
+.curTopic {
+	background-color:#FFFF00;
+	font-weight:bold;
+	color:#6666CC;
+}
+
+.flatTopic {
+	width:98%!important;
+	height:28px!important;
+	clear:all;
+}
+
+.treeTopic {
+	width:92%!important;
+	height:28px!important;
+}
+
+.treeTopic .rectLi {
+	list-style-type:rect;
+}
+
+.treeTopic .circleLi {
+	list-style-type:circle;
+}
+
+.treeTopic .squareLi {
+	list-style-type:square;
+}
+
+.menu {
+	color:#FFFFFF;
+}
+
+.home a {
+	text-decoration:none;
+	color:#FFFFFF;
+}
+
+.home a:hover {
+	text-decoration:none;
+	color:#FFFFFF;
+}
+
+.home a:visited {
+	text-decoration:none;
+	color:#FFFFFF;
+}
+
+.main{
+	text-align:left;
+	margin:0 auto;
+	font: Arial, Helvetica, sans-serif, "宋体";
+	width:760px;
+}
+
+.main a{
+	padding:1px 0px 5px 5px;
+	text-decoration:none;
+}
+
+.main a:hover{
+	text-decoration:underline;
+}
+
+.main .p_line{
+	border-bottom: 1px solid #f1f1f1;
+	color: #FF6600;
+	padding-top:5px;
+	padding-bottom:8px;
+}
+
+.mainLeft {
+	float:left;
+	width:380px;
+	margin-top:10px;
+	margin-bottom:10px;
+	margin:0 auto;
+	clear:right;
+}
+
+.mainRight {
+	float:right;
+	width:370px;
+	margin-top:10px;
+	margin-bottom:10px;
+	margin:0 auto;
+	clear:right;
+}
+
+.sign_left {
+	float:left;
+	height: 197px;
+	background: url(/image/union/sign_in_bg.gif) no-repeat left;
+	width:370px;
+	border: 1px solid #f1f1f1;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.sign_right {
+	float:right;
+	height: 197px;
+	background: url(/image/union/sign_up_bg.gif) no-repeat left;
+	width:370px;
+	margin-top:10px;
+	margin-bottom:10px;
+	border: 1px solid #f1f1f1;
+	}
+
+.sign_left ul, .sign_right ul  {
+	padding-left:20px;
+	list-style:none;
+	width: 300px;
+	float: left;
+	text-align: left;
+	margin:0px;
+	padding-top:15px;
+	font: 12px Arial, Helvetica, sans-serif, "宋体";
+}
+
+.sign_left li, .sign_right li {
+	margin-bottom:5px;
+	padding: 0;
+	text-align:right;
+}
+
+.sign_left span, .sign_right span {
+	text-align:left;
+	float: left;
+	margin: 0 auto;
+	font: 14px Arial, Helvetica, sans-serif, "宋体";
+	padding: 0px;
+}

@@ -1,0 +1,81 @@
+html{
+	overflow-y:scroll;
+}
+
+/*font color*/
+.font_orange{
+	color:#FF6600;
+}
+
+.font_grey {
+	color:#999999;
+	padding:5px;
+}
+
+.font_red {
+	color:#D51E1E;
+	background: url(none);
+	text-align: left;
+}
+
+.font_blue {
+	color:#2e65c2;
+}
+
+.font_bold {
+	font: bold 16px Arial, Helvetica, sans-serif, "宋体";
+	color:#333333;
+}
+
+.font_bold img{
+	float:right;
+	border:0px;
+}
+
+/*button*/
+.btn {
+	line-height:21px !important;
+	font: bold 12px/21px Arial, Helvetica, sans-serif, "宋体";
+	color: #FFFFFF;
+	background: #507de0;
+	border-right: 1px solid #999999;
+	border-bottom: 1px solid #999999;
+	padding-right: 2px;
+	padding-left: 2px;
+	height: 23px;
+	margin-top: 0px;
+}
+
+
+/*form enum location*/
+ p{
+	color: #333333;
+	text-align:left;
+	clear: left;
+	padding:0px;
+	margin:5px;
+	font: 12px/20px Arial, Helvetica, sans-serif, "宋体";
+}
+ p label{
+	width:110px;
+	color: #333333;
+	text-align:right;
+	float: left;
+	line-height: 20px;
+	height: 20px;
+}
+
+ p span{
+	width:150px;
+	color: #666666;
+	margin-left: 10px;
+	padding-left: 20px;
+	height: 20px;
+	padding-bottom: 2px;
+	padding-top: 2px;
+	white-space:nowrap;
+}
+ p a{
+	color:#FF6600;
+	text-decoration:underline;
+}

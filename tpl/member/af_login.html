@@ -1,0 +1,31 @@
+<script language=JavaScript src="##site_url##/js/userLogin.js"></script>
+
+<br clear="all">
+
+<div class="main">
+  <div class="sign_left">
+    <form name="loginForm" action="##app_run_url##" method="post" onsubmit="return ValidateLogin(this)">
+      <ul>
+        <li>User Name:
+          <input name="uname" type="text" maxlength="40"/>
+        </li>
+        <li>Password:
+          <input name="upwd" type="password"  maxlength="20"/>
+        </li>
+        <li>
+		  <input type="hidden" id="url" value="##return_url##">
+		  <input type="hidden" name="func" value="union">
+		  <input type="hidden" name="cmd" value="loginCheck">
+		  <input type="submit" class="btn" value="Login"/>
+        </li>
+        <li></li>
+      </ul>
+    </form>
+  </div>
+  <div class="sign_right">
+    <ul>
+      <li><span><input type="button" onclick="window.location='##app_run_url##/union/reg'" value="Regist"></span></li>
+    </ul>
+  </div>
+  </div>
+</div>

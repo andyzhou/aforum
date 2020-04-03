@@ -1,0 +1,169 @@
+<table cellpadding="2" cellspacing="1" width="98%">
+ <tr><td>
+  <h3>
+  <a href="##app_run_url##">##app_name##</a>
+	 >
+  	<a href="##show_board_bname##?s=##show_board_type##&p=##show_cur_page##">##show_board_name##</a>
+	>
+ 	##post_desc##
+	</h3>
+ </td></tr>
+</table>
+
+<table cellpadding="3" cellspacing="1" width="98%">
+ <form action="##app_run_url##" method="post" onsubmit="return checkForm(this)">    
+ <tr><td width="20%" align="right">
+ Title:
+ </td><td width="78%">
+ <input type="text" name="title" size="70" maxlength="120" value="##show_old_title##">
+ </td></tr>
+ <tr><td align="right">
+ Expression:
+ </td><td>
+  <table cellpadding="1" cellspacing="1">
+   <tr><td>
+   <input type="radio" name="express" value="0"  ##exp_check_0##>No
+   </td><td>
+   <input type="radio" name="express" value="1"  ##exp_check_1##>
+   <img src="##app_url##/images/smiles/1.gif">
+   </td><td>
+   <input type="radio" name="express" value="2"  ##exp_check_2##>
+   <img src="##app_url##/images/smiles/2.gif">
+   </td><td>
+   <input type="radio" name="express" value="3"  ##exp_check_3##>
+   <img src="##app_url##/images/smiles/3.gif">
+   </td><td>
+   <input type="radio" name="express" value="4"  ##exp_check_4##>
+   <img src="##app_url##/images/smiles/4.gif">
+   </td><td>
+   <input type="radio" name="express" value="5"  ##exp_check_5##>
+   <img src="##app_url##/images/smiles/5.gif">
+   </td><td>
+   <input type="radio" name="express" value="6"  ##exp_check_6##>
+   <img src="##app_url##/images/smiles/6.gif">
+   </td><td>
+   <input type="radio" name="express" value="7"  ##exp_check_7##>
+   <img src="##app_url##/images/smiles/7.gif">
+   </td><td>
+   <input type="radio" name="express" value="8"  ##exp_check_8##>
+   <img src="##app_url##/images/smiles/8.gif">
+   </td><td>
+   <input type="radio" name="express" value="9"  ##exp_check_9##>
+   <img src="##app_url##/images/smiles/9.gif">
+   </td></tr>
+   <tr><td>
+   <input type="radio" name="express" value="10"  ##exp_check_10##>
+   <img src="##app_url##/images/smiles/10.gif">
+   </td><td>
+   <input type="radio" name="express" value="11"  ##exp_check_11##>
+   <img src="##app_url##/images/smiles/11.gif">
+   </td><td>
+   <input type="radio" name="express" value="12"  ##exp_check_12##>
+   <img src="##app_url##/images/smiles/12.gif">
+   </td><td>
+   <input type="radio" name="express" value="13"  ##exp_check_13##>
+   <img src="##app_url##/images/smiles/13.gif">
+   </td><td>
+   <input type="radio" name="express" value="14"  ##exp_check_14##>
+   <img src="##app_url##/images/smiles/14.gif">
+   </td><td>
+   <input type="radio" name="express" value="15"  ##exp_check_15##>
+   <img src="##app_url##/images/smiles/15.gif">
+   </td><td>
+   <input type="radio" name="express" value="16"  ##exp_check_16##>
+   <img src="##app_url##/images/smiles/16.gif">
+   </td><td>
+   <input type="radio" name="express" value="17"  ##exp_check_17##>
+   <img src="##app_url##/images/smiles/17.gif">
+   </td><td>
+   <input type="radio" name="express" value="18"  ##exp_check_18##>
+   <img src="##app_url##/images/smiles/18.gif">
+   </td><td>
+   <input type="radio" name="express" value="19"  ##exp_check_19##>
+   <img src="##app_url##/images/smiles/19.gif">
+   </td></tr>
+  </table>
+ </td></tr>
+ <tr><td align="right">
+  Content:
+ </td><td>
+  max length 10KB.
+ </td></tr>
+ <tr><td>
+ </td><td>
+  <iframe name="ifmEdit" id="ifmEdit" src="##site_url##/editor/editor.htm?target=simpintr&r=22222222" onload="this.contentWindow.setHtml($.$('simpintr').value)" frameborder="0" width="600" height="300"></iframe>
+ </td></tr>
+ <tr><td align="right">Image URL:
+ </td><td>
+ <input type="text" name="imgurl" size="60" maxlength="128" value="##show_imgurl##">
+ </td></tr>
+ <tr><td>
+ </td><td>
+ <input type="hidden" name="content" value="">
+ <input type="hidden" name="cmd" value="##show_cmd##">
+ <input type="hidden" name="bname" value="##show_board_bname##">
+ <input type="hidden" name="topicId" value="##show_topic_id##">
+ <input type="hidden" name="page" value="##show_cur_page##">
+ <input type="hidden" name="type" value="##show_board_type##">
+ <input type="submit" value="Submit">
+ <input type="reset" value="Reset">
+ </td></tr></form>
+</table>
+
+
+<script language="JavaScript">
+function checkForm(theForm)
+{
+	var editContent = frames['ifmEdit'].getContent();
+	if(theForm.title.value == '')
+	{
+		alert('Please input topic title');
+		theForm.title.focus();
+		return false;
+	}
+	
+	if(editContent == '')
+	{
+		alert('Please input topic content');
+		return false;
+	}
+
+	if(editContent.length > 10000)
+	{
+		alert('topic content max 10KB');
+		return false;
+	}
+
+	var exp1 = /</g;
+	var exp2 = />/g
+
+	//title filter
+	var tmpTitleVal = theForm.title.value;
+	var tmpTitle = tmpTitleVal.replace(exp1, "&lt;");
+	var tmpTitle2 = tmpTitle.replace(exp2, "&gt;");
+
+	//content filter
+	//var tmpContentVal = editContent;
+	//var tmpContent = tmpContentVal.replace(exp1, "&lt;");
+	//var tmpContent2 = tmpContent.replace(exp2, "&gt;");
+
+	theForm.title.value = tmpTitle2;
+	theForm.content.value = editContent;
+
+	return true;
+}
+
+function setTopicOldContent()
+{
+	var oldContent = "##show_old_content##";
+	//alert(oldContent);
+	frames['ifmEdit'].setContent(oldContent);
+}
+
+//if page loaded and run function
+window.onload   =   function()  
+{  
+	
+	##run_init_topic##
+}
+</script>

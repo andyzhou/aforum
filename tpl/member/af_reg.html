@@ -1,0 +1,33 @@
+<script language=JavaScript src="##site_url##/js/userReg.js"></script>
+
+
+<br clear="all">
+
+
+<div class="main">
+  <form name="regForm" method="post" action="##app_run_url##" onsubmit="return checkRegForm(this)">
+
+  <p class="p_line">
+	<label>* User Name:</label>
+	<input type="text" name="userName" size="20" maxlength="40"/>
+	<input type="button" value="check..." onclick="checkNewUser('##app_run_url##', document.regForm.userName.value)"></p>
+  <p>
+	<label>* Password:</label>
+	<input name="userPwd" type="password" size="28" maxlength="20"/>
+	<span id="s_pass">6-20 characters</span></p>
+  <p class="p_line">
+	<label>* Nick:</label>
+	<input name="userNick" type="text" size="28" maxlength="20"/>
+	  <span id="s_pass">&nbsp;</span>
+	</p>
+  </div>
+
+ <div class="main">
+ <p>
+ <label>&nbsp;</label>
+ <input type="hidden" name="func" value="union">
+ <input type="hidden" name="cmd" value="save">
+ <input type="submit" value="Submit" >
+ <input type="reset"  value="Reset">
+ </p></form>
+ </div>

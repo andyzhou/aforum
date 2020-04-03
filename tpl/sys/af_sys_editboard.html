@@ -1,0 +1,83 @@
+<script language=JavaScript src="##site_url##/js/editBoard.js"></script>
+
+<div class="main">
+  <form name="regForm" method="post" action="##app_run_url##" onsubmit="return checkForm(this)">
+
+  <p class="p_line">
+	<label>* Board Name:</label>
+	<input type="text" name="title" value="##show_title##" size="50" maxlength="100"/>
+  <p>
+	<label>* Board EName:</label>
+	<input type="text" name="bname" value="##show_bname##" size="28" maxlength="30"/>
+	<span id="s_pass">6-20 characters</span>
+  </p> 
+  <p>
+	<label>* Parent Category:</label>
+	<select name="pid" size="1">
+	<option value="">Please select...</option>
+	<!-- ##catlists## -->
+	<option value="##cat_id##" ##cur_cat_sel##>##cat_name##</option>
+	<!-- ##catlists## -->
+	</select>
+	<a href="##app_run_url##/sys/cats">Board Category Manage</a>
+  </p> 
+
+  <p class="p_line">
+	<label> Status:</label>
+	<input type="radio" name="isOpen" value="1" ##isOpen_check_1##> Open
+	<input type="radio" name="isOpen" value="0" ##isOpen_check_0##> Close
+	</p>
+  <p class="p_line">
+	<label> View Type:</label>
+	<input type="radio" name="viewType" value="1" ##view_type_1##> Float
+	<input type="radio" name="viewType" value="2" ##view_type_2##> Tree
+	</p>
+  <p class="p_line">
+	<label> Browse Level:</label>
+	<select name="browLevel" size="1">
+	<option value="">Please select...</option>
+	<option value="0" ##brow_level_0##>All</option>
+	<option value="1" ##brow_level_1##>Member</option>
+	<option value="2" ##brow_level_2##>Moderator</option>
+	<option value="3" ##brow_level_3##>Admin</option>
+	</select>
+	</p>
+  <p class="p_line">
+	<label> Post Level:</label>
+	<select name="postLevel" size="1">
+	<option value="">Please select...</option>
+	<option value="1" ##post_level_1##>Member</option>
+	<option value="2" ##post_level_2##>Moderator</option>
+	<option value="3" ##post_level_3##>Admin</option>
+	</select>
+	</p>
+  <p class="p_line">
+	<label> Visit Password:</label>	
+	<input type="text" name="passwd" size="28" maxlength="8"/ value="##show_pwd##"> <span id="s_pass">max 8 length</span>
+	</p>
+  <p class="p_line">
+	<label> Moderator:</label>
+ <!-- ##moderlists## -->
+	<a href="##app_run_url##/union/##moder_uid##">##moder_uname##</a>
+	<a href="##app_run_url##/sys/moderator/##show_bname##?cmd=edit&uid=##moder_uid##">Modify</a>
+	<a href="##app_run_url##/sys/moderator/##show_bname##?cmd=del&uid=##moder_uid##">Delete</a>
+<!-- ##moderlists## -->
+	<a href="##app_run_url##/sys/moderator/##show_bname##?cmd=add">Add</a>
+	</p>
+  <p class="p_line">
+	<label> Board Intr:</label>
+	<textarea name="intro" cols="45" rows="8">##show_intro##</textarea>
+	</p>
+  </div>
+
+ <div class="main">
+ <p>
+ <label>&nbsp;</label>
+ <input type="hidden" name="func" value="sys">
+ <input type="hidden" name="bid" value="##show_board_id##">
+ <input type="hidden" name="cmd" value="saveboard">
+ <input type="submit" value="Save" >
+ <input type="reset"  value="Reset">
+ <input type="button" value="Return" onclick="window.location='cats'">
+ </p></form>
+ </div>

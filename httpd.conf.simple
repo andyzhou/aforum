@@ -1,0 +1,60 @@
+Server version: Apache/2.0.59
+Server built:   Jul 19 2007 10:30:45
+=======================
+
+
+LoadModule aforum_module modules/mod_aforum.so
+
+<Location /af>
+ SetHandler aforum-handler
+</Location>
+
+## forum config ######
+aForumAppName aforum
+aForumAppUrl http://dev.izhuozhuo.com
+aForumTplPath /usr/local/apache2/htdocs/af/tpl
+aForumUploadPath /usr/local/apache2/htdocs/af/upload
+aForumUploadUrl /upload
+aForumRunUrl /af
+aForumRecPePage 30
+aForumRecSubPage 15
+aForumCookieDomain izhuozhuo.com
+aForumCookieName aforum
+aForumCharSet utf-8
+
+aForumDbServ 127.0.0.1
+aForumDbPort 3306
+aForumDbSock /tmp/my.sock
+aForumDbUser af
+aForumDbPasswd af
+aForumDbName af
+
+
+
+##################################
+
+LoadModule aforum_module modules/mod_aforum.so
+
+<Location /af>
+ SetHandler aforum-handler
+</Location>
+
+## forum config ######
+aForumAppName aforum
+aForumAppUrl http://diudiu.gnway.net/aforum
+aForumTplPath /data/website/dev/www/cgi-bin/aforum/tpl
+aForumUploadPath /data/website/dev/www/aforum/upload
+aForumUploadUrl /aforum/upload
+aForumRunUrl /af
+aForumRecPePage 30
+aForumRecSubPage 15
+aForumCookieDomain diudiu.gnway.net
+aForumCookieName aforum
+aForumCharSet utf-8
+
+aForumDbServ 127.0.0.1
+aForumDbPort 3306
+aForumDbSock /tmp/my.sock
+aForumDbUser af
+aForumDbPasswd af
+aForumDbName aforum

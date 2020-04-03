@@ -1,0 +1,33 @@
+<script language=JavaScript src="##site_url##/js/userLogin.js"></script>
+
+<br clear="all">
+
+<br clear="all">
+<table cellpadding="0" cellspacing="1" width="100%" class="orgBgcolor">
+ <tbody>
+ <tr class="orgBgcolor2"><td>
+<table cellpadding="2" cellspacing="2" width="100%">
+ <form name="loginForm" action="##app_run_url##" method="post" onsubmit="return ValidateLogin(this)">
+ <tr><td></td><td>
+ <b>Member Login >></b>
+ </td></tr>
+</table>
+ </td></tr>
+ </tbody>
+</table>
+
+<table cellpadding="2" cellspacing="2" width="100%">
+ <tbody>
+ <tr><td height="6">
+ </td></tr>
+ <tr><td>
+ Email: <input name="uemail" type="text" maxlength="40"/>
+ Password: <input name="upwd" type="password"  maxlength="20"/>
+		  <input type="hidden" id="url" value="##return_url##">
+		  <input type="hidden" name="func" value="union">
+		  <input type="hidden" name="cmd" value="loginCheck">
+		  <input type="submit" class="btn" value="Login"/>
+		  <a href="##app_run_url##/union/reg">Regist</a>
+ </td></tr>
+ </tbody></form>
+</table>

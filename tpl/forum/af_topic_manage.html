@@ -1,0 +1,106 @@
+<table cellpadding="2" cellspacing="1" width="100%">
+ <tr><td height="6"></td></tr>
+ <tr><td>
+ Manage Option:
+ <a href="javascript:delTopic(##show_topic_id##);">Delete</a>
+ |
+ <a href="javascript:topTopic('##top_cmd##', ##show_topic_id##);">##top_desc##</a>
+ |
+ <a href="javascript:hotTopic('##hot_cmd##', ##show_topic_id##);">##hot_desc##</a>
+ |
+ <a href="javascript:lockTopic('##lock_cmd##', ##show_topic_id##);">##lock_desc##</a>
+ </td></tr>
+</table>
+
+<script language="JavaScript">
+<!--
+var boardAppUrl = "##app_run_url##/##show_board_bname##?cmd=manage&subcmd=";
+
+function delTopic(topicId)
+{
+	if(typeof(topicId) == "undefined" || topicId <= 0)
+	{
+		return;
+	}
+
+	if(confirm('Do you want delete current topic and replies?'))
+	{
+		window.location = boardAppUrl+"del&t="+topicId;
+		return;
+	}
+
+	return;
+}
+
+function topTopic(setCancel, topicId)
+{
+	if(typeof(topicId) == "undefined" || topicId <= 0)
+	{
+		return;
+	}
+
+	var top_desc = "";
+
+	if(setCancel == "utop")
+	{
+		top_desc = "Cancel";
+	}
+	else
+	{
+		top_desc = "Set";
+	}
+
+	if(confirm('Do you want set '+top_desc+' as top topic ?'))
+	{
+		window.location = boardAppUrl+setCancel+"&t="+topicId;
+		return;
+	}
+
+	return;
+}
+
+function hotTopic(setCancel, topicId)
+{
+	if(typeof(topicId) == "undefined" || topicId <= 0)
+	{
+		return;
+	}
+
+	if(confirm('Do you want set current topic as hot ?'))
+	{
+		window.location = boardAppUrl+setCancel+"&t="+topicId;
+		return;
+	}
+
+	return;
+}
+
+function lockTopic(setCancel, topicId)
+{
+	if(typeof(topicId) == "undefined" || topicId <= 0)
+	{
+		return;
+	}
+
+	var top_desc = "";
+
+	if(setCancel == "ulock")
+	{
+		top_desc = "Cancel";
+	}
+	else
+	{
+		top_desc = "Set";
+	}
+
+	if(confirm('Do you want lock '+top_desc+' ?'))
+	{
+		window.location = boardAppUrl+setCancel+"&t="+topicId;
+		return;
+	}
+
+	return;
+}
+
+//-->
+</script>

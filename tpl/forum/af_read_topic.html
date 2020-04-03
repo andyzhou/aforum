@@ -1,0 +1,69 @@
+<table cellpadding="2" cellspacing="1" width="100%">
+ <tr><td>
+ <h3>
+ <a href="##app_run_url##">##app_name##</a>
+  >
+ <a href="##show_board_bname##?s=1&p=##show_cur_page##">##show_board_name##</a>
+ >
+ ##show_rootTopic_title##
+ </h3>
+ </td></tr>
+</table>
+
+
+<table cellpadding="2" cellspacing="1" width="100%">
+ <tr><td align="right">
+ <a href="##show_board_id##?cmd=read&i=##show_root_topic_id##&t=##show_root_topic_id##&s=2&p=##show_cur_page##">Tree View</a> | 
+ <a href="##show_board_id##?cmd=post&s=1">Post Topic</a> | 
+ <a href="##show_board_id##?s=1&p=##show_cur_page##">Return</a>
+ </td></tr>
+ <tr><td colspan="2" height="6"></td></tr>
+</table>
+
+<!-- ##topiclist## -->
+<table cellpadding="2" cellspacing="1" class="frontTableColor" width="100%">
+ <tbody>
+ <tr class="frontTrColor2" valign="top"><td width="15%" align="center">
+  <table cellpadding="2" cellspacing="2" width="100%">
+   <tr><td>
+	##show_poster_logo##<br/>
+   <b>##show_poster##</b>
+   </td></tr>
+	<tr><td>
+	Post Topic:##show_poster_posts##
+	</td></tr>
+   <tr><td>
+  	Registe:##poster_reg_date##
+   </td></tr>
+  </table>
+ </td><td width="85%">
+  <table cellpadding="2" cellspacing="2" width="100%">
+	 <tr class="frontTrColor1" height="21"><td width="80%">
+	##show_topic_title##
+	</td><td width="20%" align="right">
+   <a href="##show_board_id##?cmd=post&t=##show_topic_id##&s=1">Reply</a>
+	|
+   <a href="##show_board_id##?cmd=edit&t=##show_topic_id##&s=1">Edit</a>
+   &nbsp;
+   </td></tr>
+   <tr><td valign="top">
+	 ##show_topic_img##
+	 ##show_topic_content##
+   </td></tr>
+  </table>
+ </td></tr>
+ </tbody>
+</table>
+<table cellPadding=0 cellSpacing=1>
+ <tr><td height="2">
+ </td></tr>
+</table>
+<!-- ##topiclist## -->
+
+
+<div class="genSecDiv">
+Pages:(##show_cur_page##/##total_pages##)
+ ##prev_page##
+ ##page_list##
+ ##next_page##
+</div>

@@ -1,0 +1,26 @@
+<script language=JavaScript src="##site_url##/js/editCat.js"></script>
+
+<div class="main">
+  <form name="regForm" method="post" action="##app_run_url##" onsubmit="return checkForm(this)">
+
+  <p class="p_line">
+	<label>* Category Name:</label>
+	<input type="text" name="title" size="50" maxlength="100"/>
+	<p class="p_line">
+	<label> Status:</label>
+	<input type="radio" name="isOpen" value="1"> Open
+	<input type="radio" name="isOpen" value="0"> Close
+	</p>
+  </div>
+
+ <div class="main">
+ <p>
+ <label>&nbsp;</label>
+ <input type="hidden" name="func" value="sys">
+ <input type="hidden" name="cid" value="##show_cat_id##">
+ <input type="hidden" name="cmd" value="savecat">
+ <input type="submit" value="Save" >
+ <input type="reset"  value="Reset">
+ <input type="button" value="Return" onclick="window.location='cats'">
+ </p></form>
+ </div>

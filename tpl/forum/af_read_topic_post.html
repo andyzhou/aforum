@@ -1,0 +1,157 @@
+<br clear="all">
+<table cellpadding="0" cellspacing="1" width="100%" class="orgBgcolor">
+ <tbody>
+ <tr class="orgBgcolor2"><td>
+<table cellpadding="2" cellspacing="2" width="100%">
+ <form action="##app_run_url##" method="post" onsubmit="return checkForm(this)">
+ <tr><td></td><td>
+ <b>Reply Topic >></b>
+ </td></tr>
+</table>
+ </td></tr>
+ </tbody>
+</table>
+
+
+<table cellpadding="2" cellspacing="2" width="100%">
+ <tr><td colspan="2" height="6"></td></tr>
+ <tr><td width="15%" align="right">
+ Title:
+ </td><td width="85%">
+ <input type="text" name="title" size="70" maxlength="120" value="re:##show_current_title##">
+ </td></tr>
+ <tr><td align="right">
+ Expression:
+ </td><td>
+  <table cellpadding="1" cellspacing="1">
+   <tr><td>
+   <input type="radio" name="express" value="0" checked>No
+   </td><td>
+   <input type="radio" name="express" value="1">
+   <img src="##app_url##/images/smiles/1.gif">
+   </td><td>
+   <input type="radio" name="express" value="2">
+   <img src="##app_url##/images/smiles/2.gif">
+   </td><td>
+   <input type="radio" name="express" value="3">
+   <img src="##app_url##/images/smiles/3.gif">
+   </td><td>
+   <input type="radio" name="express" value="4">
+   <img src="##app_url##/images/smiles/4.gif">
+   </td><td>
+   <input type="radio" name="express" value="5">
+   <img src="##app_url##/images/smiles/5.gif">
+   </td><td>
+   <input type="radio" name="express" value="6">
+   <img src="##app_url##/images/smiles/6.gif">
+   </td><td>
+   <input type="radio" name="express" value="7">
+   <img src="##app_url##/images/smiles/7.gif">
+   </td><td>
+   <input type="radio" name="express" value="8">
+   <img src="##app_url##/images/smiles/8.gif">
+   </td><td>
+   <input type="radio" name="express" value="9">
+   <img src="##app_url##/images/smiles/9.gif">
+   </td></tr>
+   <tr><td>
+   <input type="radio" name="express" value="10">
+   <img src="##app_url##/images/smiles/10.gif">
+   </td><td>
+   <input type="radio" name="express" value="11">
+   <img src="##app_url##/images/smiles/11.gif">
+   </td><td>
+   <input type="radio" name="express" value="12">
+   <img src="##app_url##/images/smiles/12.gif">
+   </td><td>
+   <input type="radio" name="express" value="13">
+   <img src="##app_url##/images/smiles/13.gif">
+   </td><td>
+   <input type="radio" name="express" value="14">
+   <img src="##app_url##/images/smiles/14.gif">
+   </td><td>
+   <input type="radio" name="express" value="15">
+   <img src="##app_url##/images/smiles/15.gif">
+   </td><td>
+   <input type="radio" name="express" value="16">
+   <img src="##app_url##/images/smiles/16.gif">
+   </td><td>
+   <input type="radio" name="express" value="17">
+   <img src="##app_url##/images/smiles/17.gif">
+   </td><td>
+   <input type="radio" name="express" value="18">
+   <img src="##app_url##/images/smiles/18.gif">
+   </td><td>
+   <input type="radio" name="express" value="19">
+   <img src="##app_url##/images/smiles/19.gif">
+   </td></tr>
+  </table>
+ </td></tr>
+ <tr><td align="right">
+ Content:
+ </td><td>
+ max length 10KB.
+ </td></tr>
+ <tr><td></td><td>
+ <textarea name="content" cols="73" rows="8"></textarea>
+ </td></tr>
+</table>
+
+<table cellpadding="2" cellspacing="1" width="96%">
+ <tr><td width="15%">
+ </td><td width="85%">
+ <input type="hidden" name="cmd" value="savetopic">
+ <input type="hidden" name="bname" value="##show_board_bname##">
+ <input type="hidden" name="topicId" value="##show_cur_topic_id##">
+ <input type="hidden" name="page" value="##show_page_id##">
+ <input type="hidden" name="type" value="2">
+ <input type="submit" value="Submit">
+ <input type="reset" value="Reset">
+ </td></tr></form>
+</table>
+
+<script language="JavaScript">
+function checkForm(theForm)
+{
+	if(theForm.title.value == '')
+	{
+		alert('Please input topic title');
+		theForm.title.focus();
+		return false;
+	}
+	
+	if(theForm.content.value == '')
+	{
+		alert('Please input topic content');
+		theForm.content.focus();
+		return false;
+	}
+
+	if(theForm.content.length > 10000)
+	{
+		alert('topic content max 10KB');
+		theForm.content.focus();
+		return false;
+	}
+
+	
+
+	var exp1 = /</g;
+	var exp2 = />/g
+
+	//title filter
+	var tmpTitleVal = theForm.title.value;
+	var tmpTitle = tmpTitleVal.replace(exp1, "&lt;");
+	var tmpTitle2 = tmpTitle.replace(exp2, "&gt;");
+
+	//content filter
+	var tmpContentVal = theForm.content.value;
+	//var tmpContent = tmpContentVal.replace(exp1, "&lt;");
+	//var tmpContent2 = tmpContent.replace(exp2, "&gt;");
+
+	theForm.title.value = tmpTitle2;
+	theForm.content.value = tmpContentVal;
+
+	return true;
+}
+</script>

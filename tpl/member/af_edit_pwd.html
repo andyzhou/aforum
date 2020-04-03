@@ -1,0 +1,32 @@
+<br clear="all">
+
+<script language=JavaScript src="##site_url##/js/chgPwd.js"></script>
+
+<div class="main">
+ <form name="regForm" action="##app_run_url##" method="post" onsubmit="return checkForm(this)">
+ <p>
+  <label>Old Password:</label>
+  <input type="password" name="oldpwd" size="20" maxlength="20">
+ </p>
+ <p>
+  <label>New Password:</label>
+  <input type="password" name="pwd1" size="20" maxlength="20">
+ </p>
+ <p>
+  <label>Passwrod Confirm:</label>
+  <input type="password" name="pwd2" size="20" maxlength="20">
+ </p>
+</div>
+
+<div class="main">
+ <p>
+ <label>&nbsp;</label>
+ <input type="hidden" name="func" value="union">
+ <input type="hidden" name="cmd" value="savePwd">
+ <input type="submit" name="submitBtn" value="Submit">
+ <input type="reset"  name="resetBtn" value="Reset">
+ <input type="button"  name="resetBtn" value="Return"  onclick="javascript:history.go(-1)">
+ </p></form>
+ </div>
+
+

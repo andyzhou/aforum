@@ -1,0 +1,68 @@
+<table cellpadding="2" cellspacing="1" width="100%">
+ <tr><td>
+ <h3>
+ <a href="##app_run_url##">##app_name##</a>
+  >
+ <a href="##show_board_bname##?s=2&p=##show_cur_page##">##show_board_name##</a>
+ >
+ ##show_current_title##
+ </h3>
+ </td></tr>
+</table>
+
+<table cellpadding="2" cellspacing="1" width="100%">
+ <tr><td width="70%">
+ </td><td width="30%" align="right">
+ <a href="##show_board_bname##?cmd=read&t=##show_root_topic_id##&p=##show_cur_page##">Float View</a> | 
+ <a href="##show_board_bname##?cmd=post&s=2">Post Topic</a> | 
+ <a href="##show_board_bname##?s=2&p=##show_cur_page##">Return</a>
+ </td></tr>
+ <tr><td colspan="2" height="6"></td></tr>
+</table>
+
+<table cellpadding="2" cellspacing="1" class="frontTableColor" width="100%">
+ <tr bgcolor="#FFFFFF" valign="top"><td width="15%" align="center">
+  <table cellpadding="2" cellspacing="2" width="100%">
+   <tr><td>
+	##show_current_poster_logo##<br/>
+   <b>##show_current_poster##</b>
+   </td></tr>
+	<tr><td>
+	Post Topic:##show_current_poster_posts##
+	</td></tr>
+   <tr><td>
+   	Regist:##poster_reg_date##
+   </td></tr>
+  </table>
+ </td><td width="85%" valign="top">
+    <table cellpadding="2" cellspacing="2" width="100%">
+	 <tr class="frontTrColor1" height="21"><td width="80%">
+	 ##show_current_title##
+	 </td><td width="20%" align="right">
+	 <a href="##show_board_bname##?cmd=post&t=##show_cur_topic_id##&s=2">Reply</a>
+	 |
+	 <a href="##show_board_bname##?cmd=edit&t=##show_cur_topic_id##&s=2">Edit</a>
+	 &nbsp;
+	 </td></tr>
+	 <tr><td colspan="2" valign="top">
+	 ##show_topic_img##
+	 ##show_current_content##
+	 </td></tr>
+	</table>
+ </td></tr>
+</table>
+
+<br>
+
+<!-- ##fixtopiclist## -->
+<table cellpadding="0" cellspacing="0" width="100%"> 
+ <tr height="26"><td style="padding-left:##show_space_width##px">
+ <li style="list-style-type:##show_li_style##"  style="padding-left:##show_space_width##px">##show_express##<a class="topic" href="##show_board_bname##?cmd=read&i=##show_topic_id##&t=##show_rootTopic_id##&p=##show_cur_page##&s=2">##show_topic_title##</a>
+ ##show_att_type## ##show_topic_status##
+ &nbsp;##show_topic_len## bytes
+ - <strong>##show_poster##</strong>
+ <a href="##app_run_url##/union/##show_poster_id##"><img src="##app_url##/images/icon_search.gif" border="0"></a>
+ - ##show_post_time## (##show_topic_hits## hits)
+ </td></tr>
+</table>
+<!-- ##fixtopiclist## -->

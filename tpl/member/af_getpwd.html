@@ -1,0 +1,96 @@
+
+<br clear="all">
+
+<div class="whole_page">
+ <div class="gen_all">
+
+<table border=0 cellPadding=2 cellSpacing=2 align="center"> 
+  <form action="/websso/" name="user_login_form" method="post" onsubmit="return ValidateLogin(this)">
+   <tr><td>
+   </td><td>
+   <b>Get Password</b>
+   </td></tr>
+   <tr><td width="15%" align="right">
+    Email Address：
+   </td><td width="85%">
+    <input type="text" name="uemail" size="23">
+   </td></tr>
+   <tr height="23"><td align="right">
+    Nick Name：
+   </td><td>
+    <input type="text" name="nickname" size="23">
+   </td></tr>
+   <tr><td>
+   </td><td>
+    <input type="hidden" name="cmd" value="sendpwd">
+    <input type="submit" name="submitBtn" class="butt" value="Send Password">
+   </td></tr></form>
+  </table>
+ 
+ </div>
+</div>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+
+
+//check email
+function mailbox_check(emailaddr)
+{
+
+    var at_character;
+	var mail_check=true;
+    
+	at_character=emailaddr.indexOf('@');
+
+	if(emailaddr.length < 6)
+	{
+	  mail_check=false;
+	}
+
+	if(at_character <= 0)
+	{
+	   mail_check=false;
+	}
+
+  	if(emailaddr.search(new RegExp("^(([0-9a-zA-Z]+)|([0-9a-zA-Z]+[_.0-9a-zA-Z-]*[0-9a-zA-Z]+))@([a-zA-Z0-9-]+[.])+([a-zA-Z]{2,4})$","gi")) == -1)
+	{
+	   mail_check = false;
+	}
+
+    if(mail_check==false)
+	{
+	   return false;
+	}
+
+	return true;
+}
+
+//form data check
+function ValidateLogin(theForm)
+{
+  if(theForm.uemail.value=='')
+  {
+   alert('Please input email.');
+   theForm.uemail.focus();
+   return false;
+  }
+  else if(mailbox_check(theForm.uemail.value) == false)
+  {
+	  alert("Invalid email.");
+	  theForm.uemail.focus();
+	  return false;	
+  }
+  else if(theForm.nickname.value=='')
+  {
+   alert('Please input nick');
+   theForm.nickname.focus();
+   return false;
+  }
+
+  theForm.submitBtn.disabled=true;
+
+  return true;
+}
+//-->
+</SCRIPT>
