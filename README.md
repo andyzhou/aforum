@@ -1,6 +1,7 @@
+
 ** Introduce **
 
-This is simple forum code, base on apache module.
+This is simple forum code, write in c,  base on apache module.
 
 - support float and tree mode display topics
 - support multi language
@@ -17,4 +18,5 @@ This is simple forum code, base on apache module.
 
 
 Tips: this is old code and not maintain for long time, just share.
+
 
